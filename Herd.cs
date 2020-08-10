@@ -8,5 +8,10 @@ namespace RobotsVsDinosaurs
 {
     class Herd
     {
+        //Member Variables
+
+        //Constructor
+
+        //Member Mehtods
     }
 }

@@ -8,5 +8,15 @@ namespace RobotsVsDinosaurs
 {
     class Dinosaur
     {
+        //Member Variables
+        string type;
+        int health;
+        int energy;
+        int attackPower;
+        //Constructor
+
+        //Member Mehtods
+
+
     }
 }

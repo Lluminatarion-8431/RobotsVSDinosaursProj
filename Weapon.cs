@@ -8,5 +8,10 @@ namespace RobotsVsDinosaurs
 {
     class Weapon
     {
+        //Member Variables
+
+        //Constructor
+
+        //Member Mehtods
     }
 }

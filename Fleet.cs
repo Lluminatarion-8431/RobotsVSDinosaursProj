@@ -8,5 +8,10 @@ namespace RobotsVsDinosaurs
 {
     class Fleet
     {
+        //Member Variables
+
+        //Constructor
+
+        //Member Mehtods
     }
 }
