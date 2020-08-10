@@ -12,16 +12,25 @@ namespace RobotsVsDinosaurs
         public string name;
         public int health;
         public int powerLevel;
-        public string weaponType;
+        public Weapon weapon;
         //Constructor
         public Robot(string name)
         {
             health = 100;
-            weaponType = "sword";
+            weapon = new Weapon("Sword");
             powerLevel = 100;
             this.name = name;
         }
         //Member Mehtods
+        public void Attack(Dinosaur dinosaur)
+        {
+            dinosaur.health -= weapon.attackPower;
+        }
+      
 
+        //public void Attack(Robot robot)
+        //{
+        //    robot.powerLevel -= 10;
+        //}
     }
 }

@@ -22,7 +22,15 @@ namespace RobotsVsDinosaurs
             this.type = type;
         }
         //Member Mehtods
+        public void Attack(Robot robot)
+        {
+            robot.health -= attackPower;
+        }
 
+        //public void Attack(Dinosaur dinosaur)
+        //{
+        //    dinosaur.energy -= 10;
+        //}
 
     }
 }
