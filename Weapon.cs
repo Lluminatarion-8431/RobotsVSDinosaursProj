@@ -9,9 +9,14 @@ namespace RobotsVsDinosaurs
     class Weapon
     {
         //Member Variables
-
+        public int attackPower;
+        public string type;
         //Constructor
-
+        public Weapon(string type)
+        {
+            attackPower = 35;
+            this.type = type;
+        }
         //Member Mehtods
     }
 }
