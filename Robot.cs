@@ -9,12 +9,18 @@ namespace RobotsVsDinosaurs
     class Robot
     {
         //Member Variables
-        string name;
-        int health;
-        int powerLevel;
-        string WeaponType;
+        public string name;
+        public int health;
+        public int powerLevel;
+        public string weaponType;
         //Constructor
-
+        public Robot(string name)
+        {
+            health = 100;
+            weaponType = "sword";
+            powerLevel = 100;
+            this.name = name;
+        }
         //Member Mehtods
 
     }

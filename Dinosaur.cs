@@ -9,12 +9,18 @@ namespace RobotsVsDinosaurs
     class Dinosaur
     {
         //Member Variables
-        string type;
-        int health;
-        int energy;
-        int attackPower;
+        public string type;
+        public int health;
+        public int energy;
+        public int attackPower;
         //Constructor
-
+        public Dinosaur(string type)
+        {
+            attackPower = 20;
+            health = 100;
+            energy = 50;
+            this.type = type;
+        }
         //Member Mehtods
 
 
