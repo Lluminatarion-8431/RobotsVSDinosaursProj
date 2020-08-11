@@ -30,9 +30,17 @@ namespace RobotsVsDinosaurs
                 fleet.robots.Remove(fleet.robots[userChoice]);
             }
         }
-        public void RobotsTurn()
+        public void RobotsTurn(Robot robot)
         {
-
+            Console.WriteLine(robot.name + " is attacking yo!")
+            DisplayAttackOptions("Robots");
+            int userChoice = Convert.ToInt32(Console.ReadLine());
+            robot.Attack(herd.dinosaurs[userChoice]);
+            if (herd.dinosaurs[userChoice].health <= 0)
+            {
+                Console.WriteLine(herd.dinosaurs[userChoice].type + " has been murdered hahaha.");
+                herd.dinosaurs.Remove(herd.dinosaurs[userChoice]);
+            }
         }
         public void DisplayAttackOptions()
         {
