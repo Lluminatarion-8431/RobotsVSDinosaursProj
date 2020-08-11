@@ -14,10 +14,14 @@ namespace RobotsVsDinosaurs
         //Constructor
         public Battlefield()
         {
+            InitializeFleetAndHerd();
+        }
+        //Member Mehtods (Can Do)
+        public void InitializeFleetAndHerd()
+        {
             fleet = new Fleet();
             herd = new Herd();
         }
-        //Member Mehtods (Can Do)
         public void DinosaursTurn(Dinosaur dinosaur)
         {
             Console.WriteLine(dinosaur.type + " is attacking yo!");
@@ -26,7 +30,7 @@ namespace RobotsVsDinosaurs
             dinosaur.Attack(fleet.robots[userChoice]);
             if (fleet.robots[userChoice].health <= 0)
             {
-                Console.WriteLine(fleet.robots[userChoice].name + " has been murdered hahaha.");
+                Console.WriteLine(herd.dinosaurs[userChoice].type + " has been murdered hahaha.");
                 fleet.robots.Remove(fleet.robots[userChoice]);
             }
         }
@@ -38,7 +42,7 @@ namespace RobotsVsDinosaurs
             robot.Attack(herd.dinosaurs[userChoice]);
             if (herd.dinosaurs[userChoice].health <= 0)
             {
-                Console.WriteLine(herd.dinosaurs[userChoice].type + " has been murdered hahaha.");
+                Console.WriteLine(fleet.robots[userChoice].name + " has been murdered hahaha.");
                 herd.dinosaurs.Remove(herd.dinosaurs[userChoice]);
             }
         }
@@ -60,9 +64,22 @@ namespace RobotsVsDinosaurs
                 }
             }
         }
-        public void RunBattle()
+        public void SimulateBattle()
         {
-
+            bool dinosaursTurn = true;
+            while (fleet.robots.Count > 0 && herd.dinosaurs.Count > 0)
+            {
+                if (dinosaursTurn)
+                {
+                    DinosaursTurn(herd.dinosaurs[0]);
+                    dinosaursTurn = false;
+                }
+                else
+                {
+                    RobotsTurn(fleet.robots[0]);
+                    dinosaursTurn = true;
+                }
+            }
         }
         public void DisplayWinner()
         {
@@ -74,6 +91,26 @@ namespace RobotsVsDinosaurs
             {
                 Console.WriteLine("Dinosaurs got murdered!");
             }
+        }
+        public void PromptToPlayAgain()
+        {
+            Console.WriteLine("Up for another round? Y/N");
+            string userInput = Console.ReadLine();
+            if (userInput == "Yes" || userInput == "yes" || userInput == "Y" || userInput == "y")
+            {
+                InitializeFleetAndHerd();
+                Run();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
+        public void Run()
+        {
+            SimulateBattle();
+            DisplayWinner();
+            PromptToPlayAgain();
         }
     }
 }
