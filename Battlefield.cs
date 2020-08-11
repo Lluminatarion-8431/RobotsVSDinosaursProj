@@ -21,7 +21,7 @@ namespace RobotsVsDinosaurs
         public void DinosaursTurn(Dinosaur dinosaur)
         {
             Console.WriteLine(dinosaur.type + " is attacking yo!")
-            DisplayAttackOptions("Dinosaurs");
+            DisplayAttackOptions(true);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             dinosaur.Attack(fleet.robots[userChoice]);
             if (fleet.robots[userChoice].health <= 0)
@@ -33,7 +33,7 @@ namespace RobotsVsDinosaurs
         public void RobotsTurn(Robot robot)
         {
             Console.WriteLine(robot.name + " is attacking yo!")
-            DisplayAttackOptions("Robots");
+            DisplayAttackOptions(false);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             robot.Attack(herd.dinosaurs[userChoice]);
             if (herd.dinosaurs[userChoice].health <= 0)
@@ -42,9 +42,24 @@ namespace RobotsVsDinosaurs
                 herd.dinosaurs.Remove(herd.dinosaurs[userChoice]);
             }
         }
-        public void DisplayAttackOptions()
+        public void DisplayAttackOptions(bool dinosaursTurn)
         {
-
+            Console.WriteLine("Who do you want to destroy?:");
+            if (dinosaursTurn)
+            {
+                for(int i = 0; i < fleet.robots.Count; i++)
+                {
+                    Console.WriteLine(i + ") " + fleet.robots[i].name);
+                }
+            }
+            else
+            {
+                for(int i = 0; i < herd.dinosaurs.Count; i++)
+                {
+                    Console.WriteLine(i + ")" + herd.dinosaurs[i].type);
+                }
+            }
         }
+
     }
 }
