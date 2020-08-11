@@ -18,9 +18,17 @@ namespace RobotsVsDinosaurs
             herd = new Herd();
         }
         //Member Mehtods (Can Do)
-        public void DinosaursTurn()
+        public void DinosaursTurn(Dinosaur dinosaur)
         {
-
+            Console.WriteLine(dinosaur.type + " is attacking yo!")
+            DisplayAttackOptions("Dinosaurs");
+            int userChoice = Convert.ToInt32(Console.ReadLine());
+            dinosaur.Attack(fleet.robots[userChoice]);
+            if (fleet.robots[userChoice].health <= 0)
+            {
+                Console.WriteLine(fleet.robots[userChoice].name + " has been murdered hahaha.");
+                fleet.robots.Remove(fleet.robots[userChoice]);
+            }
         }
         public void RobotsTurn()
         {
