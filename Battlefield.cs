@@ -20,7 +20,7 @@ namespace RobotsVsDinosaurs
         //Member Mehtods (Can Do)
         public void DinosaursTurn(Dinosaur dinosaur)
         {
-            Console.WriteLine(dinosaur.type + " is attacking yo!")
+            Console.WriteLine(dinosaur.type + " is attacking yo!");
             DisplayAttackOptions(true);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             dinosaur.Attack(fleet.robots[userChoice]);
@@ -32,7 +32,7 @@ namespace RobotsVsDinosaurs
         }
         public void RobotsTurn(Robot robot)
         {
-            Console.WriteLine(robot.name + " is attacking yo!")
+            Console.WriteLine(robot.name + " is attacking yo!");
             DisplayAttackOptions(false);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             robot.Attack(herd.dinosaurs[userChoice]);
@@ -60,6 +60,20 @@ namespace RobotsVsDinosaurs
                 }
             }
         }
+        public void RunBattle()
+        {
 
+        }
+        public void DisplayWinner()
+        {
+            if(fleet.robots.Count > 0)
+            {
+                Console.WriteLine("Robots got murdered!");
+            }
+            else
+            {
+                Console.WriteLine("Dinosaurs got murdered!");
+            }
+        }
     }
 }
