@@ -24,25 +24,25 @@ namespace RobotsVsDinosaurs
         }
         public void DinosaursTurn(Dinosaur dinosaur)
         {
-            Console.WriteLine(dinosaur.type + " is attacking yo!");
+            Console.WriteLine(dinosaur.type + " is attacking!");
             DisplayAttackOptions(true);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             dinosaur.Attack(fleet.robots[userChoice]);
             if (fleet.robots[userChoice].health <= 0)
             {
-                Console.WriteLine(herd.dinosaurs[userChoice].type + " has been murdered hahaha.");
+                Console.WriteLine(herd.dinosaurs[userChoice].type + " has died.");
                 fleet.robots.Remove(fleet.robots[userChoice]);
             }
         }
         public void RobotsTurn(Robot robot)
         {
-            Console.WriteLine(robot.name + " is attacking yo!");
+            Console.WriteLine(robot.name + " is attacking!");
             DisplayAttackOptions(false);
             int userChoice = Convert.ToInt32(Console.ReadLine());
             robot.Attack(herd.dinosaurs[userChoice]);
             if (herd.dinosaurs[userChoice].health <= 0)
             {
-                Console.WriteLine(fleet.robots[userChoice].name + " has been murdered hahaha.");
+                Console.WriteLine(fleet.robots[userChoice].name + " has died.");
                 herd.dinosaurs.Remove(herd.dinosaurs[userChoice]);
             }
         }

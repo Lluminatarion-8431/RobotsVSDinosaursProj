@@ -11,6 +11,7 @@ namespace RobotsVsDinosaurs
         //Member Variables
         public int attackPower;
         public string type;
+        //public Random random;
         //Constructor
         public Weapon(string type)
         {
